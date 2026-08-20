@@ -1,0 +1,29 @@
+body { 
+    margin: 0; 
+    overflow: hidden; 
+    background-color: #87CEEB; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#info { 
+    position: absolute; 
+    bottom: 20px; 
+    width: 100%; 
+    text-align: center; 
+    color: white; 
+    pointer-events: none; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
+    font-size: 1.1rem;
+    font-weight: bold;
+    z-index: 10;
+}
+#title {
+    position: absolute; 
+    top: 20px; 
+    left: 20px;
+    color: white; 
+    pointer-events: none; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
+    font-size: 1.5rem;
+    font-weight: 800;
+    z-index: 10;
+}
