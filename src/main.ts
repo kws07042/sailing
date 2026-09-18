@@ -17,8 +17,7 @@ const load = (): SaveData => {
 };
 const save = () => localStorage.setItem('sea-break-save', JSON.stringify(state.save));
 
-const app = document.querySelector<HTMLDivElement>('#app');
-if (!app) throw new Error('Missing #app');
+const app = document.querySelector<HTMLDivElement>('#app')!;
 
 const state = {
   page: location.pathname,
@@ -213,7 +212,7 @@ class Game {
     }[kind] as number[];
     const bg=new THREE.Color(settings[0]), water=settings[1];this.scene.background=bg;this.scene.fog=new THREE.FogExp2(bg,settings[2]);
     (this.ocean.material as THREE.MeshStandardMaterial).color.setHex(water);this.sun.intensity=settings[3];this.ambient.intensity=settings[4];
-    this.sun.color.set(kind==='sunset'?0xff9b5e:kind==='night'?0x91a8d4:0xfff1cd);this.rain.visible=kind==='rain'||kind==='storm';this.stars.material.opacity=kind==='night'?.88:0;
+    this.sun.color.set(kind==='sunset'?0xff9b5e:kind==='night'?0x91a8d4:0xfff1cd);this.rain.visible=kind==='rain'||kind==='storm';(this.stars.material as THREE.PointsMaterial).opacity=kind==='night'?.88:0;
     this.camera.fov=58;this.camera.updateProjectionMatrix();const b=this.ui?.querySelector('#weather-button span');if(b)b.textContent=WEATHER_LABELS[kind].split(' ')[0];
     if(!instant)this.toast(WEATHER_LABELS[kind].replace(/^[^ ]+ /,'')+' weather');
   }
